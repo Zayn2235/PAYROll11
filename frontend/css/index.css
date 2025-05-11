@@ -1,0 +1,53 @@
+/* ===== Hero Section ===== */
+
+.hero {
+    position: relative;
+    background: url('../public/images/hero-bg.jpg') center/cover no-repeat;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 62, 80, 0.6);
+    /* dark overlay for contrast */
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    max-width: 600px;
+    padding: var(--space-lg);
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-md);
+}
+
+.hero-content p {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-lg);
+}
+
+.btn-hero {
+    font-size: 1.125rem;
+    padding: var(--space-sm) var(--space-xl);
+}
+
+
+/* ===== Responsive Adjustments ===== */
+
+@media (max-width: 600px) {
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+}

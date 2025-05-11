@@ -1,0 +1,58 @@
+/* frontend/css/tax.css */
+
+
+/* Container & Layout */
+
+.tax {
+    padding: var(--space-lg) 0;
+}
+
+.tax h1 {
+    font-size: 2rem;
+    margin-bottom: var(--space-lg);
+    color: var(--color-primary);
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-md);
+}
+
+
+/* Individual Card */
+
+.card {
+    background: var(--color-surface);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform .2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h2 {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xs);
+    color: var(--color-secondary);
+}
+
+.card-value {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+
+/* Toast container */
+
+.toast-container {
+    position: fixed;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 1000;
+}

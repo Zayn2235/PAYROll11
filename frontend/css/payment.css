@@ -1,0 +1,99 @@
+/* ─── FILTER TOOLBAR ───────────────────────────────────────────────── */
+
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-lg);
+    align-items: flex-end;
+}
+
+.filter-bar.hidden {
+    display: none;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.875rem;
+}
+
+.filter-group label {
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+}
+
+
+/* hide admin-only fields unless class removed */
+
+.admin-only {
+    display: none;
+}
+
+
+/* ─── PAYSLIP CARDS ───────────────────────────────────────────────── */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: var(--space-md);
+}
+
+.card {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.card .employee-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card .meta {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.card .amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-top: auto;
+}
+
+.card button {
+    margin-top: var(--space-sm);
+    align-self: flex-start;
+}
+
+
+/* responsive tweaks */
+
+@media (max-width: 640px) {
+    .filter-bar {
+        flex-direction: column;
+    }
+}

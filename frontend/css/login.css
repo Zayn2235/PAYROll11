@@ -1,0 +1,285 @@
+/* =========================================================
+   SPINNER (only visible while button has .loading)
+   ========================================================= */
+
+.send-btn .spinner {
+    /* default – hidden */
+    display: none;
+}
+
+.send-btn.loading .spinner {
+    /* show when .loading is present */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    margin-left: 5.5em;
+    /* sits after the text */
+}
+
+.send-btn.loading .btn-text {
+    /* hide label while loading */
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   SELECT (Role dropdown) styling
+   ========================================================= */
+
+.reg-step select {
+    width: 100%;
+    padding: var(--space-sm);
+    font-size: 1rem;
+    line-height: 1.4;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    color: inherit;
+    appearance: none;
+    /* add your own arrow icon if you like */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2212%22%20height%3D%227%22%20viewBox%3D%220%200%2012%207%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M6%207L0%200h12L6%207z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-sm) center;
+    background-size: 0.75em auto;
+    cursor: pointer;
+}
+
+.reg-step select:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 2px rgba( var(--color-secondary-rgb), 0.2);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+     LAYOUT
+     ========================================================= */
+
+ :root {
+    --page-gap: 2rem;
+}
+
+.auth-container {
+    height: calc(100vh - 97px);
+    /* 80 px header → full-screen look */
+    display: grid;
+    grid-template-columns: 1fr minmax(360px, 480px);
+    gap: var(--page-gap);
+    padding: var(--page-gap);
+    align-items: center;
+    /* vertical-center the form */
+}
+
+
+/* Illustration panel */
+
+.login-hero {
+    height: 100%;
+    border-radius: var(--radius);
+    background: url('../public/images/hero login.jpg') center/cover no-repeat;
+    box-shadow: var(--shadow-md);
+}
+
+
+/* Form wrapper */
+
+.forms {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+     TAB SWITCHER
+     ========================================================= */
+
+.auth-toggle {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.auth-toggle button {
+    padding: .75rem;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+}
+
+.auth-toggle button[aria-selected="true"] {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+
+/* =========================================================
+     FORM CARD + STEPS
+     ========================================================= */
+
+.form-card {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-card.active {
+    display: flex;
+}
+
+.login-step,
+.reg-step {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.login-step:not([hidden]),
+.reg-step:not([hidden]) {
+    display: flex;
+}
+
+
+/* Inputs */
+
+.input-with-toggle {
+    position: relative;
+}
+
+.input-with-toggle input {
+    width: 100%;
+    padding-right: 3rem;
+}
+
+.input-with-toggle .toggle-password {
+    position: absolute;
+    right: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-secondary);
+    font-size: .9rem;
+}
+
+
+/* Buttons */
+
+.btn {
+    padding: .75rem;
+    border: none;
+    margin-top: 5%;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s, transform .15s;
+}
+
+.btn-primary {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+}
+
+
+/* Inline links */
+
+.inline-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: .5rem;
+}
+
+.inline-links a {
+    font-size: .875rem;
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+.inline-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+     TOASTS (unchanged except position padding tweak)
+     ========================================================= */
+
+.toast-container {
+    position: fixed;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    z-index: 999;
+}
+
+.toast {
+    background: var(--color-primary);
+    color: #fff;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius);
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slide-in .3s ease forwards;
+}
+
+.toast.fade-out {
+    animation: slide-out .3s ease forwards;
+}
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}

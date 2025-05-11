@@ -1,0 +1,88 @@
+<!-- pages/employees.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Employees – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/employees.css" />
+    <script type="module">
+        import { CURRENT_USER } from '../js/main.js'; if (!CURRENT_USER || CURRENT_USER.role !== 'admin') { window.location.href = 'employee-profile.html'; }
+    </script>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Payroll Management System</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html" aria-current="page">Employees</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal hidden" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+            <h2 id="confirm-title">Confirm Deletion</h2>
+            <p id="confirm-message">Are you sure you want to delete this employee?</p>
+            <div class="modal-actions">
+                <button id="confirm-cancel" class="btn-secondary">Cancel</button>
+                <button id="confirm-ok" class="btn-primary">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spinner overlay -->
+    <div id="spinner-overlay" class="spinner-overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <main class="employees container">
+        <h2>Employee Management</h2>
+        <div class="employees-actions">
+            <div class="search-filter">
+                <input type="text" id="search-input" placeholder="Search by name…" />
+                <select id="filter-dept">
+          <option value="">All Departments</option>
+          <option value="backend">Backend Development</option>
+          <option value="frontend">Frontend Development</option>
+          <option value="devops">DevOps</option>
+          <option value="qa">Quality Assurance</option>
+          <option value="product">Product Management</option>
+          <option value="design">UX/UI Design</option>
+          <option value="data">Data Science & Analytics</option>
+          <option value="finance">Finance & Accounting</option>
+          <option value="sales">Sales & Marketing</option>
+          <option value="support">Customer Support</option>
+          <option value="it">IT Support</option>
+          <option value="training">Training & Development</option>
+          <option value="operations">Operations</option>
+          <option value="executive">Executive Management</option>
+        </select>
+            </div>
+            <button id="add-employee-btn" class="btn-primary">+ Add Employee</button>
+        </div>
+
+        <section id="employees-list" class="employees-grid" aria-label="Employee list">
+            <!-- JS injects cards here -->
+        </section>
+
+        <div class="pagination" id="pagination"></div>
+    </main>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/toast.js"></script>
+    <script type="module" src="../js/employees.js"></script>
+</body>
+
+</html>

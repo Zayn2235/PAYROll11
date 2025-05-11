@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Payroll – Auth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Payroll Management System</h1>
+        </div>
+    </header>
+
+    <main class="auth-container">
+        <div class="login-hero" role="img" aria-label="Payroll illustration"></div>
+        <div class="forms">
+
+            <!-- Tab Switcher -->
+            <div class="auth-toggle" role="tablist">
+                <button id="tab-login" role="tab" aria-selected="true">Login</button>
+                <button id="tab-register" role="tab" aria-selected="false">Register</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="form-login" class="form-card active" autocomplete="off" novalidate>
+                <h2>Login</h2>
+
+                <!-- PASSWORD STEP -->
+                <div class="login-step" data-step="password">
+                    <label for="login-email">Email</label>
+                    <input id="login-email" type="email" name="email" required />
+
+                    <label for="login-password">Password</label>
+                    <div class="input-with-toggle">
+                        <input id="login-password" type="password" name="password" required />
+                        <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <div class="inline-links">
+                        <a href="#" data-action="forgot">Forgot Password?</a>
+                        <a href="#" data-action="otp">Login via OTP</a>
+                    </div>
+                </div>
+
+                <!-- OTP STEP -->
+                <div class="login-step" data-step="otp" hidden>
+                    <label for="otp-login-email">Email</label>
+                    <input id="otp-login-email" type="email" name="otpEmail" required />
+
+                    <button type="button" id="send-otp-login" class="btn btn-secondary send-btn">
+            <span class="btn-text">Send OTP</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+
+                    <div class="otp-input" hidden>
+                        <label for="otp-code">Enter OTP</label>
+                        <input id="otp-code" type="text" name="otpCode" maxlength="6" required />
+                        <button type="button" id="verify-otp-login" class="btn btn-primary send-btn">
+              <span class="btn-text">Verify &amp; Login</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+                    </div>
+
+                    <div class="inline-links">
+                        <a href="#" data-action="password">Back to Password</a>
+                    </div>
+                </div>
+
+                <!-- FORGOT-PASSWORD STEP -->
+                <div class="login-step" data-step="forgot" hidden>
+                    <label for="forgot-email">Email</label>
+                    <input id="forgot-email" type="email" name="forgotEmail" required />
+
+                    <button type="button" id="send-otp-forgot" class="btn btn-secondary send-btn">
+            <span class="btn-text">Continue</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+
+                    <div class="otp-input" hidden>
+                        <label for="forgot-otp">Enter OTP</label>
+                        <input id="forgot-otp" type="text" name="forgotOtp" maxlength="6" required />
+                        <button type="button" id="verify-otp-forgot" class="btn btn-primary send-btn">
+              <span class="btn-text">Verify OTP</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+                    </div>
+
+                    <div class="reset-password" hidden>
+                        <label for="new-password">New Password</label>
+                        <div class="input-with-toggle">
+                            <input id="new-password" type="password" name="newPassword" required />
+                            <button type="button" class="toggle-password" aria-label="Show new password">Show</button>
+                        </div>
+                        <label for="confirm-password">Confirm Password</label>
+                        <div class="input-with-toggle">
+                            <input id="confirm-password" type="password" name="confirmPassword" required />
+                            <button type="button" class="toggle-password" aria-label="Show confirm password">Show</button>
+                        </div>
+                        <button type="button" id="reset-password-btn" class="btn btn-primary send-btn">
+              <span class="btn-text">Reset Password</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+                    </div>
+
+                    <div class="inline-links">
+                        <a href="#" data-action="password">Back to Password</a>
+                    </div>
+                </div>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="form-register" class="form-card" autocomplete="off" novalidate>
+                <h2>Register</h2>
+
+                <!-- 1) NAME / EMAIL / ROLE -->
+                <div class="reg-step" data-reg-step="email">
+                    <label for="reg-name">Name</label>
+                    <input id="reg-name" type="text" name="regName" required />
+
+                    <label for="reg-email">Email</label>
+                    <input id="reg-email" type="email" name="regEmail" required />
+
+                    <label for="reg-role">Role</label>
+                    <select id="reg-role" name="regRole" required>
+            <option value="admin">Admin</option>
+          </select>
+
+                    <button type="button" id="send-otp-register" class="btn btn-secondary send-btn">
+            <span class="btn-text">Send OTP</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+                </div>
+
+                <!-- 2) OTP -->
+                <div class="reg-step" data-reg-step="otp" hidden>
+                    <label for="reg-otp">Enter OTP</label>
+                    <input id="reg-otp" type="text" name="regOtp" maxlength="6" required pattern="\d{6}" />
+                    <button type="button" id="verify-otp-register" class="btn btn-primary send-btn">
+            <span class="btn-text">Verify OTP</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+                </div>
+
+                <!-- 3) PASSWORD -->
+                <div class="reg-step" data-reg-step="password" hidden>
+                    <label for="reg-password">Password</label>
+                    <div class="input-with-toggle">
+                        <input id="reg-password" type="password" name="regPassword" required minlength="6" />
+                        <button type="button" class="toggle-password" aria-label="Show password">Show</button>
+                    </div>
+                    <label for="reg-confirm">Confirm Password</label>
+                    <div class="input-with-toggle">
+                        <input id="reg-confirm" type="password" name="regConfirm" required minlength="6" />
+                        <button type="button" class="toggle-password" aria-label="Show confirm password">Show</button>
+                    </div>
+                    <button type="button" id="set-password-btn" class="btn btn-primary send-btn">
+            <span class="btn-text">Next</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+                </div>
+
+                <!-- 4) SECURITY CODE -->
+                <div class="reg-step" data-reg-step="security" hidden>
+                    <label for="reg-security-code">Enter Security Code</label>
+                    <input id="reg-security-code" type="text" name="securityCode" required maxlength="15" placeholder="15-digit code" />
+                    <button type="button" id="verify-security-code" class="btn btn-primary send-btn">
+            <span class="btn-text">Confirm Security Code</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+                    <p class="small text-muted">
+                        You have <span id="attempts-count">3</span> attempts remaining.
+                    </p>
+                </div>
+
+                <div class="inline-links">
+                    <a href="#" data-action="login">Already have an account? Login</a>
+                </div>
+            </form>
+
+        </div>
+    </main>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+</body>
+
+</html>

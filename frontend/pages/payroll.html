@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Payroll Processing – Cloud Payroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/payroll.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="dashboard.html" class="logo">Cloud Payroll</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Employees</a></li>
+                    <li><a href="payroll.html" aria-current="page">Payroll</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container payroll">
+        <h1 class="page-title">Payroll Processing</h1>
+
+        <section class="card-container">
+            <div class="card summary-card">
+                <h2 class="card-title">Available Funds</h2>
+                <p id="available-funds" class="card-value">—</p>
+            </div>
+            <div class="card summary-card">
+                <h2 class="card-title">Total Payroll</h2>
+                <p id="total-payroll" class="card-value">—</p>
+            </div>
+            <div class="card summary-card">
+                <h2 class="card-title">Tax Deductions</h2>
+                <p id="tax-deductions" class="card-value">—</p>
+            </div>
+            <div class="card summary-card">
+                <h2 class="card-title">Net Pay</h2>
+                <p id="net-pay" class="card-value">—</p>
+            </div>
+        </section>
+
+        <!-- Deposit Funds -->
+        <section class="section-controls">
+            <button id="show-fund-btn" class="btn btn-secondary">Add Payroll Funds</button>
+            <div id="fund-section" class="form-section hidden">
+                <form id="fund-form" class="form-card">
+                    <h2 class="section-title">Deposit Funds</h2>
+                    <div class="form-group">
+                        <label for="fund-amount">Amount (£)</label>
+                        <input type="number" id="fund-amount" step="0.01" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Funds</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Distribute Payroll -->
+        <section class="section-controls">
+            <button id="show-dist-btn" class="btn btn-secondary">Distribute Payroll Pool</button>
+            <div id="distribute-section" class="form-section hidden">
+                <form id="distribute-form" class="form-card">
+                    <h2 class="section-title">Distribute Payroll</h2>
+
+                    <div class="form-group">
+                        <label for="dist-month">Month</label>
+                        <select id="dist-month" required>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dist-year">Year</label>
+                        <input type="number" id="dist-year" min="2000" value="2025" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dist-dept">Department</label>
+                        <select id="dist-dept">
+              <option value="">All Departments</option>
+              <option value="backend">Backend</option>
+              <option value="frontend">Frontend</option>
+              <option value="devops">DevOps</option>
+              <option value="qa">Quality Assurance</option>
+              <option value="product">Product</option>
+              <option value="design">Design</option>
+              <option value="data">Data</option>
+              <option value="finance">Finance</option>
+              <option value="sales">Sales</option>
+              <option value="support">Support</option>
+              <option value="it">IT</option>
+              <option value="training">Training</option>
+              <option value="operations">Operations</option>
+              <option value="executive">Executive</option>
+            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dist-role">Role</label>
+                        <select id="dist-role" disabled>
+              <option value="">All Roles</option>
+            </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Distribute</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/toast.js"></script>
+    <script type="module" src="../js/payroll.js"></script>
+</body>
+
+</html>

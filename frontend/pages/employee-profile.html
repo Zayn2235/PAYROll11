@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My Profile – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Cloud Payroll</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employee-profile.html" aria-current="page">My Profile</a></li>
+                    <li><button id="logout-btn" class="logout-btn">Log out</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="profile container">
+        <h2>Welcome, <span id="user-name">—</span></h2>
+
+        <section class="card">
+            <h3>Profile Details</h3>
+            <p><strong>Name:</strong> <span id="profile-name">—</span></p>
+            <p><strong>Email:</strong> <span id="profile-email">—</span></p>
+            <button id="edit-profile" class="btn-secondary">Edit Profile</button>
+        </section>
+
+        <section class="card">
+            <h3>Change Password</h3>
+            <input type="password" id="current-pw" placeholder="Current password" />
+            <input type="password" id="new-pw" placeholder="New password" />
+            <button id="change-pw-btn" class="btn-primary">Change Password</button>
+        </section>
+
+        <section class="card">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="payslips.html">View Payslips</a></li>
+                <li><a href="tax.html">Tax Records</a></li>
+                <li><a href="leave.html">Leave Requests</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,195 @@
+/* frontend/css/payroll.css */
+
+
+/* Layout Helpers */
+
+.payroll {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    padding: var(--space-lg) 0;
+}
+
+.section-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+}
+
+
+/* Summary Cards */
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.summary-card {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+}
+
+.card-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+}
+
+
+/* Form Sections */
+
+.form-section.hidden {
+    display: none;
+}
+
+.form-section {
+    width: 100%;
+    max-width: 450px;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-primary);
+}
+
+
+/* Form Card Overrides */
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* Grouped Inputs */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group select {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--color-bg);
+}
+
+
+/* Buttons */
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius);
+    transition: transform var(--transition), background var(--transition);
+}
+
+.btn-primary {
+    background: var(--color-secondary);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.btn:hover,
+.btn:focus {
+    transform: translateY(-2px);
+    background: var(--color-accent);
+}
+
+
+/* Footer */
+
+.site-footer {
+    text-align: center;
+    padding: var(--space-md) 0;
+    background: var(--color-surface);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 0.875rem;
+    color: var(--color-muted);
+}
+
+.form-group select {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: var(--color-bg);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn:hover:not(:disabled),
+.btn:focus:not(:disabled) {
+    transform: translateY(-2px);
+    background: var(--color-accent);
+}
+
+
+/* ... your existing styles ... */
+
+
+/* Modal overlay */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    max-width: 400px;
+    width: 100%;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.modal-actions {
+    margin-top: var(--space-md);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+}

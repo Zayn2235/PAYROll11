@@ -1,0 +1,120 @@
+/* two-column layout */
+
+.leave {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-xl) 0;
+}
+
+.leave-left,
+.leave-right {
+    background: var(--color-surface);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* form styling */
+
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+}
+
+
+/* request cards */
+
+.requests-grid {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.request-card {
+    border-left: 4px solid var(--color-muted);
+    padding: var(--space-md);
+    background: var(--color-surface);
+    cursor: pointer;
+    transition: transform var(--transition);
+}
+
+.request-card:hover {
+    transform: translateY(-2px);
+}
+
+.request-card.pending {
+    border-color: #f1c40f;
+}
+
+.request-card.approved {
+    border-color: #2ecc71;
+}
+
+.request-card.rejected {
+    border-color: #e74c3c;
+}
+
+
+/* modal */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-lg);
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-actions {
+    margin-top: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.modal-actions textarea {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    width: 100%;
+    height: 80px;
+}

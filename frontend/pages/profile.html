@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Profile – Cloud Payroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/profile.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Payroll Management System</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Employees</a></li>
+                    <li><a href="profile.html" aria-current="page">Profile</a></li>
+                    <li>
+                        <button id="logout-btn" class="logout-btn">
+              <img src="../public/images/log-out.png" alt="Logout" class="logout-icon" />
+            </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin container">
+        <h2 id="welcome-banner">Welcome back, <span id="welcome-name">—</span>!</h2>
+        <form id="profile-form" class="form-card" autocomplete="off" novalidate>
+
+            <div class="form-group">
+                <label for="admin-name">Name</label>
+                <input type="text" id="admin-name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="admin-email">Email</label>
+                <input type="email" id="admin-email" name="email" required />
+            </div>
+            <button type="button" id="save-profile" class="btn btn-secondary">Save Profile</button>
+
+            <fieldset class="form-section">
+                <legend>Change Password</legend>
+                <div class="form-group input-with-toggle">
+                    <label for="current-password">Current Password</label>
+                    <input type="password" id="current-password" name="currentPassword" required />
+                    <button type="button" class="toggle-password" data-target="current-password">Show</button>
+                </div>
+                <div class="form-group input-with-toggle">
+                    <label for="new-password">New Password</label>
+                    <input type="password" id="new-password" name="newPassword" required minlength="6" />
+                    <button type="button" class="toggle-password" data-target="new-password">Show</button>
+                </div>
+                <div class="form-group input-with-toggle">
+                    <label for="confirm-password">Confirm New Password</label>
+                    <input type="password" id="confirm-password" name="confirmPassword" required minlength="6" />
+                    <button type="button" class="toggle-password" data-target="confirm-password">Show</button>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Password</button>
+            </fieldset>
+        </form>
+    </main>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+
+</html>

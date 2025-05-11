@@ -1,0 +1,341 @@
+/* === base.css === */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+
+/* === CSS Variables / Theme === */
+
+:root {
+    --font: 'Inter', sans-serif;
+    /* Palette */
+    --color-bg: #f7f9fa;
+    --color-surface: #ffffff;
+    --color-primary: #2c3e50;
+    /* deep slate */
+    --color-secondary: #3498db;
+    /* vibrant blue */
+    --color-accent: #e74c3c;
+    /* coral red */
+    --color-text: #2f3640;
+    --color-muted: #7f8c8d;
+    /* Spacing & Sizing */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --radius: 8px;
+    --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: 0.3s ease;
+}
+
+
+/* === Global Styles === */
+
+html {
+    font-family: var(--font);
+    font-size: 16px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* === Utility Containers === */
+
+.container {
+    width: 100%;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+
+/* === Headings === */
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-weight: 600;
+}
+
+
+/* === Buttons === */
+
+.btn {
+    display: inline-block;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius);
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn-primary {
+    background: var(--color-secondary);
+    color: #fff;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.btn-primary:hover {
+    background: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: var(--color-accent);
+    color: #fff;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.btn-secondary:hover {
+    background: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+
+/* === Cards === */
+
+.card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+
+/* === Forms === */
+
+.form-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-lg);
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-card label {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.form-card input,
+.form-card textarea {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+
+/* === Header & Nav === */
+
+.site-header {
+    width: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    box-shadow: var(--shadow-md);
+    padding: var(--space-md) 0;
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.site-header .logo {
+    color: #fff;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: -pc;
+    gap: var(--space-md);
+}
+
+.main-nav a {
+    color: #fff;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius);
+    font-size: 0.95rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.main-nav a:hover,
+.main-nav a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: var(--space-md) 0;
+    background: var(--color-surface);
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+/* === Logout Button === */
+
+
+/* Use a bold coral-red background to signal “stop/exit” actions :contentReference[oaicite:4]{index=4} */
+
+.logout-btn {
+    background: transparent;
+    padding: var(--space-xs) var(--space-sm);
+    border: none;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition), transform var(--transition);
+    /* smooth feedback :contentReference[oaicite:5]{index=5} */
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+    background: transparent;
+    transform: scale(1.1);
+}
+
+
+/* Icon sizing via background-image layering :contentReference[oaicite:6]{index=6} */
+
+.logout-icon {
+    width: 100px;
+    height: 45px;
+    margin-top: -15px;
+    margin-right: -3pc;
+    object-fit: contain;
+}
+
+
+/* === Toast notifications === */
+
+.toast-container {
+    position: fixed;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    z-index: 2000;
+}
+
+.toast {
+    background: var(--color-primary);
+    color: #fff;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    transform: translateX(100%);
+    opacity: 0;
+    animation: slide-in 0.4s forwards;
+}
+
+.toast.fade-out {
+    animation: fade-out 0.4s forwards;
+}
+
+@keyframes slide-in {
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+
+/* === Loading overlay === */
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+}
+
+#loading-overlay .spinner {
+    width: 48px;
+    height: 48px;
+    border: 6px solid var(--color-surface);
+    border-top-color: var(--color-secondary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Leave & Attendance – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/leave.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo"><a href="dashboard.html">Payroll Management System</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="leave.html" aria-current="page">Leave & Attendance</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li>
+                        <button id="logout-btn" class="logout-btn" aria-label="Logout">
+              <img src="../public/images/log-out.png" alt="Logout" class="logout-icon" />
+            </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="leave container">
+        <!-- Employee form (hidden for admins) -->
+        <section id="leave-form-section" class="leave-left">
+            <h2>Apply for Leave</h2>
+            <form id="leave-form" class="form-card">
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate" name="startDate" required />
+                </div>
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate" name="endDate" required />
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason</label>
+                    <textarea id="reason" name="reason" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Request Leave</button>
+            </form>
+        </section>
+
+        <!-- Requests list -->
+        <section class="leave-right">
+            <h2 id="requests-title">My Requests</h2>
+            <div id="requests-container" class="requests-grid">
+                <!-- JS will inject cards here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Admin decision modal -->
+    <div id="leave-modal" class="modal hidden">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>Request Details</h3>
+            <div id="modal-body"></div>
+            <div id="admin-actions" class="modal-actions hidden">
+                <textarea id="admin-note" placeholder="Add a note (optional)"></textarea>
+                <button id="approve-btn" class="btn-primary">Approve</button>
+                <button id="reject-btn" class="btn-secondary">Reject</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/leave.js"></script>
+</body>
+
+</html>

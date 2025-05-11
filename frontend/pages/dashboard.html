@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Dashboard – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo"><a href="dashboard.html">Payroll Management System</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html" aria-current="page">Dashboard</a></li>
+                    <li><a href="employees.html">Employees</a></li>
+                    <li><a href="payroll.html">Payroll</a></li>
+                    <li><a href="leave.html">Leave</a></li>
+                    <li><a href="payment.html">Payslips</a></li>
+                    <li><a href="tax.html">Tax</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li>
+                        <button id="logout-btn" class="logout-btn" aria-label="Logout">
+              <img src="../public/images/log-out.png" alt="Logout" class="logout-icon" />
+            </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <main class="dashboard container">
+        <h2>Dashboard Overview</h2>
+
+        <section class="summary-cards">
+            <div class="card" id="card-total-employees">
+                <h3>Total Employees</h3>
+                <p class="value" id="total-employees">—</p>
+            </div>
+            <div class="card">
+                <h3>Pending Leaves</h3>
+                <p class="value" id="pending-leaves">—</p>
+            </div>
+            <div class="card">
+                <h3>Upcoming Payroll</h3>
+                <p class="value" id="upcoming-payroll">—</p>
+            </div>
+        </section>
+
+        <h2>Quick Access</h2>
+        <section class="quick-access">
+            <a href="employees.html" class="card-link" id="link-employees">
+                <div class="card-icon">👤</div>
+                <h3>Employees</h3>
+                <p>Manage profiles</p>
+            </a>
+            <a href="payroll.html" class="card-link" id="link-payroll">
+                <div class="card-icon">💷</div>
+                <h3>Payroll</h3>
+                <p>Process salaries</p>
+            </a>
+            <a href="leave.html" class="card-link">
+                <div class="card-icon">📅</div>
+                <h3>Leave</h3>
+                <p>Request & approve</p>
+            </a>
+            <a href="payment.html" class="card-link">
+                <div class="card-icon">📄</div>
+                <h3>Payslips</h3>
+                <p>Download payslips</p>
+            </a>
+            <a href="tax.html" class="card-link" id="link-tax">
+                <div class="card-icon">📈</div>
+                <h3>Tax</h3>
+                <p>View history</p>
+            </a>
+        </section>
+    </main>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
+</body>
+
+</html>

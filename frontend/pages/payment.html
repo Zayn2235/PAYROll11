@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment &amp; Payslips – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/payment.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="dashboard.html" class="logo">Cloud Payroll</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="payment.html" aria-current="page">Payment &amp; Payslips</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container payment">
+
+        <h2>Payment &amp; Payslips</h2>
+
+        <!-- FILTER TOOLBAR -->
+        <section id="filter-bar" class="filter-bar hidden">
+            <!-- Admin-only inputs -->
+            <div class="filter-group admin-only">
+                <label for="filter-name">Name</label>
+                <input type="text" id="filter-name" placeholder="Search name…">
+            </div>
+            <div class="filter-group admin-only">
+                <label for="filter-dept">Department</label>
+                <select id="filter-dept">
+          <option value="">All Depts</option>
+          <option value="backend">Backend</option>
+          <option value="frontend">Frontend</option>
+          <option value="devops">DevOps</option>
+          <option value="qa">QA</option>
+          <option value="product">Product</option>
+          <option value="design">Design</option>
+          <option value="data">Data</option>
+          <option value="finance">Finance</option>
+          <option value="sales">Sales</option>
+          <option value="support">Support</option>
+          <option value="it">IT</option>
+          <option value="training">Training</option>
+          <option value="operations">Operations</option>
+          <option value="executive">Executive</option>
+        </select>
+            </div>
+            <div class="filter-group admin-only">
+                <label for="filter-role">Role</label>
+                <select id="filter-role" disabled>
+          <option value="">All Roles</option>
+        </select>
+            </div>
+
+            <!-- Common Month/Year -->
+            <div class="filter-group">
+                <label for="filter-month">Month</label>
+                <select id="filter-month">
+          <option value="">All</option>
+          <option value="1">Jan</option>
+          <option value="2">Feb</option>
+          <option value="3">Mar</option>
+          <option value="4">Apr</option>
+          <option value="5">May</option>
+          <option value="6">Jun</option>
+          <option value="7">Jul</option>
+          <option value="8">Aug</option>
+          <option value="9">Sep</option>
+          <option value="10">Oct</option>
+          <option value="11">Nov</option>
+          <option value="12">Dec</option>
+        </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-year">Year</label>
+                <input type="number" id="filter-year" min="2000" placeholder="2025">
+            </div>
+
+            <button id="apply-filters" class="btn btn-primary">Apply</button>
+        </section>
+
+        <!-- PAYSLIP CARDS -->
+        <section class="card-container" id="payslips-list">
+            <!-- cards injected by JS -->
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/payment.js"></script>
+</body>
+
+</html>

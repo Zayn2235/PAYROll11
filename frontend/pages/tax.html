@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Tax Info &amp; History – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/tax.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="dashboard.html" class="logo">Cloud Payroll</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="payroll.html">Payroll</a></li>
+                    <li><a href="leave.html">Leave</a></li>
+                    <li><a href="payment.html">Payslips</a></li>
+                    <li><a href="tax.html" aria-current="page">Tax</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container tax">
+        <h1>Tax Info &amp; History</h1>
+
+        <section class="card-container" aria-label="Your tax summary">
+            <div class="card">
+                <h2>Income Tax</h2>
+                <p id="income-tax" class="card-value">—</p>
+            </div>
+            <div class="card">
+                <h2>Provident Fund</h2>
+                <p id="provident-fund" class="card-value">—</p>
+            </div>
+            <div class="card">
+                <h2>Total Deductions</h2>
+                <p id="total-deductions" class="card-value">—</p>
+            </div>
+            <div class="card">
+                <h2>Net Received</h2>
+                <p id="net-received" class="card-value">—</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast-container" class="toast-container"></div>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/tax.js"></script>
+</body>
+
+</html>

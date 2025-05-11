@@ -1,0 +1,12 @@
+# Node
+node_modules/
+npm-debug.log
+
+# Env
+.env
+
+# SQLite data folder (no longer used)
+data/
+
+# OS
+.DS_Store

@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\config",
+    "\\backend\\controllers",
+    "\\backend\\middlewares",
+    "\\frontend",
+    "\\frontend\\js",
+    "\\Fsd",
+    "\\Fsd\\bmi-demo",
+    "\\Fsd\\bmi-demo\\src"
+  ],
+  "SelectedNode": "\\frontend\\js\\payment.js",
+  "PreviewInSolutionExplorer": false
+}

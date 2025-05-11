@@ -1,0 +1,88 @@
+<!-- pages/employee.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Employee – Cloud Payroll</title>
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/employee.css" />
+    <script type="module">
+        import { CURRENT_USER } from '../js/main.js'; // Only admin/HR may edit employees if (!CURRENT_USER || CURRENT_USER.role === 'Employee') { window.location.href = 'employee-profile.html'; }
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <h1 class="logo">Payroll Management System</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="employees.html">Employees</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Spinner overlay -->
+    <div id="spinner-overlay" class="spinner-overlay hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <main class="employee-form container">
+        <h2 id="form-title">Add New Employee</h2>
+        <form id="employee-form" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <select id="department" name="department" required>
+          <option value="">Select department…</option>
+          <option value="backend">Backend Development</option>
+          <option value="frontend">Frontend Development</option>
+          <option value="devops">DevOps</option>
+          <option value="qa">Quality Assurance</option>
+          <option value="product">Product Management</option>
+          <option value="design">UX/UI Design</option>
+          <option value="data">Data Science & Analytics</option>
+          <option value="finance">Finance & Accounting</option>
+          <option value="sales">Sales & Marketing</option>
+          <option value="support">Customer Support</option>
+          <option value="it">IT Support</option>
+          <option value="training">Training & Development</option>
+          <option value="operations">Operations</option>
+          <option value="executive">Executive Management</option>
+        </select>
+            </div>
+            <div class="form-group">
+                <label for="role">Role</label>
+                <select id="role" name="role" required>
+          <option value="">Select role…</option>
+          <option value="">Employee</option>
+        </select>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Save</button>
+                <button type="button" class="btn-secondary" onclick="history.back()">Cancel</button>
+            </div>
+        </form>
+    </main>
+
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/toast.js"></script>
+    <script type="module" src="../js/employee.js"></script>
+</body>
+
+</html>

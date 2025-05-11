@@ -1,0 +1,203 @@
+/* css/employees.css */
+
+.employees {
+    padding: var(--space-xl) 0;
+}
+
+.employees-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+}
+
+.search-filter {
+    display: flex;
+    gap: var(--space-md);
+}
+
+.search-filter input,
+.search-filter select {
+    padding: var(--space-sm);
+    border: 1px solid var(--color-muted);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    min-width: 180px;
+}
+
+
+/* Full-screen loader when fetching list */
+
+.employees .loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.employees .loader-overlay.active {
+    display: flex;
+}
+
+.loader {
+    border: 4px solid var(--color-muted);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.employees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: var(--space-lg);
+}
+
+.employee-card {
+    display: flex;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.employee-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.employee-avatar {
+    flex: 0 0 96px;
+    background: var(--color-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--color-muted);
+}
+
+.employee-avatar img {
+    width: 64px;
+    height: 64px;
+}
+
+.employee-info {
+    flex: 1;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+}
+
+.employee-id {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    margin-bottom: var(--space-xs);
+}
+
+.employee-name {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.employee-email {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+}
+
+.employee-role,
+.employee-dept {
+    font-size: 0.9rem;
+    margin-bottom: var(--space-xs);
+}
+
+.card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: var(--space-md);
+}
+
+.btn-sm {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: 0.85rem;
+}
+
+.pagination {
+    margin-top: var(--space-lg);
+    text-align: center;
+}
+
+.pagination button {
+    margin: 0 var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+}
+
+.pagination button.active,
+.pagination button:hover {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+
+/* === Confirmation Modal === */
+
+.modal.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+}
+
+.modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    max-width: 400px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: var(--shadow-md);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: var(--color-primary);
+}
+
+.modal-content p {
+    margin: var(--space-md) 0;
+    color: var(--color-text);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-md);
+}
