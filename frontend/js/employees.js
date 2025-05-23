@@ -73,8 +73,8 @@ btnCancel.addEventListener('click', closeModal);
 modal.querySelector('.modal-backdrop').addEventListener('click', closeModal);
 
 btnOk.addEventListener('click', () => {
-    closeModal();
-    deleteEmployee(pendingDeleteId);
+  deleteEmployee(pendingDeleteId);
+  closeModal();
 });
 
 // deletion
